@@ -8,7 +8,7 @@ int main() {
     // Estrutura condicional encadeada
     if (idade >= 18) {
         printf("Você é maior de idade.\n");
-    } else if (idade >= 0) {
+    } else if (idade < 18) {
         printf("Você é menor de idade.\n");
     } else {
         printf("Idade inválida.\n");
