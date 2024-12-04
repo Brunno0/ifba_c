@@ -1,6 +1,6 @@
 # Aula sobre Estruturas Condicionais em C
 
-![Imagem do Campus Euclides da Cunha](https://portal.ifba.edu.br/euclides-da-cunha/imagens-campus-euclides/2018/euclidesdacunha.png/@@images/29b9d5f7-2757-41e3-a684-96c7b52337b3.png)
+![Imagem do Campus Euclides da Cunha]([https://portal.ifba.edu.br/euclides-da-cunha/imagens-campus-euclides/2018/euclidesdacunha.png/@@images/29b9d5f7-2757-41e3-a684-96c7b52337b3.png](https://portal.ifba.edu.br/euclides-da-cunha/imagens-campus-euclides/2018/euclidesdacunha.png)) 
 
 ## Descrição
 A aula aborda as **estruturas condicionais** na linguagem de programação **C**, permitindo que o programa tome decisões com base em condições.
