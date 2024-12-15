@@ -1,0 +1,10 @@
+#include <stdio.h>
+void main() {
+    char carteirinha = 'n';
+    char fardamento = 's';
+    if (carteirinha == 's' || fardamento== 's') {
+        printf("Pode entrar,boas aulas.\n");
+    } else {
+        printf("Carterinha ou fardamento incompleto, procure a direcao .\n");
+    }
+}

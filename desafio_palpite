@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    srand(time(NULL));
+    int numero_secreto = rand() % 11;  // Número que o jogador deve adivinhar criado de forma randomica
+    int palpite, tentativas = 3;
+
+    printf("Bem-vindo ao jogo de adivinhação!\n");
+    printf("Você tem %d tentativas para adivinhar o número secreto (entre 1 e 10).\n", tentativas);
+
+    // Primeira tentativa
+    printf("Digite seu palpite: ");
+    scanf("%d", &palpite);
+
+    if (palpite < 1 || palpite > 10) {
+        printf("O palpite deve estar entre 1 e 10. Tente novamente.\n");
+    } else if (palpite == numero_secreto) {
+        printf("Parabéns! Você acertou o número secreto!\n");
+    } else {
+        tentativas--;
+        if (tentativas > 0) {
+            printf("Errou! Você tem %d tentativas restantes.\n", tentativas);
+            
+            // Segunda tentativa
+            printf("Digite seu palpite: ");
+            scanf("%d", &palpite);
+
+            if (palpite < 1 || palpite > 10) {
+                printf("O palpite deve estar entre 1 e 10. Tente novamente.\n");
+            } else if (palpite == numero_secreto) {
+                printf("Parabéns! Você acertou o número secreto!\n");
+            } else {
+                tentativas--;
+                if (tentativas > 0) {
+                    printf("Errou! Você tem %d tentativas restantes.\n", tentativas);
+
+                    // Terceira tentativa
+                    printf("Digite seu palpite: ");
+                    scanf("%d", &palpite);
+
+                    if (palpite < 1 || palpite > 10) {
+                        printf("O palpite deve estar entre 1 e 10. Tente novamente.\n");
+                    } else if (palpite == numero_secreto) {
+                        printf("Parabéns! Você acertou o número secreto!\n");
+                    } else {
+                        printf("Você perdeu! O número secreto era %d.\n", numero_secreto);
+                    }
+                } else {
+                    printf("Você perdeu! O número secreto era %d.\n", numero_secreto);
+                }
+            }
+        } else {
+            printf("Você perdeu! O número secreto era %d.\n", numero_secreto);
+        }
+    }
+
+    return 0;
+}
