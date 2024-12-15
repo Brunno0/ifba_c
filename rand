@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // Gera um número aleatório
+    int numero_aleatorio = rand();
+
+    // Exibe o número gerado
+    printf("Número aleatório gerado: %d\n", numero_aleatorio);
+
+    return 0;
+}

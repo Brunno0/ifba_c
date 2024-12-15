@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void main() {
+    int acao;
+    printf("01 - Apartamento 01 Bloco 1\n");
+    printf("02 - Apartamento 02 Bloco 1\n");
+    scanf("%d", &acao);
+    switch (acao) {
+        case 1:
+            printf("Ding dong no Apartamento 01 Bloco 1\n");
+            break;
+        case 2:
+            printf("Ding dong no Apartamento 02 Bloco 1\n");
+            break;
+        default:
+            printf("Ação inválida. Escolha entre 1 ou 2 \n");
+    }
+}

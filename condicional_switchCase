@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void main() {
+    int acao;
+
+    printf("Escolha uma ação no jogo:\n");
+    printf("1 - Atacar\n");
+    printf("2 - Defender\n");
+    printf("3 - Usar magia\n");
+    printf("Digite sua escolha: ");
+    scanf("%d", &acao);
+    switch (acao) {
+        case 1:
+            printf("Você atacou o inimigo com sua espada! Causou 50 de dano.\n");
+            break;
+        case 2:
+            printf("Você levantou o escudo e bloqueou o ataque! Recebeu apenas 10 de dano.\n");
+            break;
+        case 3:
+            printf("Você usou uma poderosa bola de fogo! Causou 100 de dano.\n");
+            break;
+        default:
+            printf("Ação inválida. Escolha entre 1, 2 ou 3.\n");
+    }
+}
