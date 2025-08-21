@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <locale.h>
 
+
+int menuInicial();
+	void cardapio();  
+	void atendimento();
+	void pedido();
+
 int main (){
 	setlocale(LC_ALL, "Portuguese");
 	int rodando=1,opcao;
 	
-	int menuInicial();
-	void cardapio();  
-	void atendimento();
-	void pedido();
+	
 	
 	while (rodando){
 
