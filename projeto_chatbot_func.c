@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <locale.h>
-#include <stdlib.h>  // Para system("cls") e system("pause")
+#include <stdlib.h>  
 
 // Funções
 int menuInicial();
-void cardapio(char cardapioTxt[][100], int tamanho);
 void atendimento();
 void pedido();
-void imprimirCardapio(char array[][100], int tamanho);
 
-// Cardapio com 4 itens (cada string com até 100 caracteres)
+void cardapio(char cardapioTxt[][100], int tamanho);
+void imprimirArrayChar(char array[][100], int tamanho);
+
+// Cardápio com 4 itens 
 #define TAMANHO_ARRAY 4
 
 char cardapioTxt[TAMANHO_ARRAY][100] = {
@@ -17,6 +18,13 @@ char cardapioTxt[TAMANHO_ARRAY][100] = {
     "[2] Pizza de Frango c/ Catupiry - R$ 38.00",
     "[3] Pizza Quatro Queijos - R$ 40.00",
     "[4] Pizza Nordestina - R$ 50.00"
+};
+
+float precos[TAMANHO_ARRAY] = {
+    35.00,
+    38.00,
+    40.00,
+    50.00
 };
 
 int main() {
@@ -70,15 +78,14 @@ void cardapio(char cardapioTxt[][100], int tamanho) {
     int subOpcao;
     system("cls");
     printf("\n--- CARDÁPIO ---\n");
-    imprimirCardapio(cardapioTxt, tamanho);
-
+    imprimirArrayChar(cardapioTxt, tamanho);
     do {
         printf("\nDigite [0] para voltar <- \n");
         scanf("%d", &subOpcao);
     } while (subOpcao != 0);
 }
 
-void imprimirCardapio(char array[][100], int tamanho) {
+void imprimirArrayChar(char array[][100], int tamanho) {
 	int i;
     for ( i=0; i<tamanho; i++) {
         printf("%s\n", array[i]);
@@ -113,23 +120,23 @@ void pedido() {
 
     for (i = 1; i <= qtd; i++) {
     //chamada para imprimir 
-	   imprimirCardapio(cardapioTxt, tamanhoCardapio);
+	   imprimirArrayChar(cardapioTxt, TAMANHO_ARRAY);
 	   
 	   printf("Opção: ");
         scanf("%d", &subOpcao);
 
         switch (subOpcao) {
             case 1:
-                totalPedido += 35.0;
+                totalPedido += precos[0];
                 break;
             case 2:
-                totalPedido += 38.0;
+                totalPedido += precos[1];
                 break;
             case 3:
-                totalPedido += 40.0;
+                totalPedido += precos[2];
                 break;
             case 4:
-                totalPedido += 50.0;
+                totalPedido += precos[3];
                 break;
             default:
                 printf("Opção inválida! Pizza #%d não adicionada.\n", i);
@@ -144,3 +151,4 @@ void pedido() {
     printf("Pedido realizado com sucesso!\n");
     system("pause");
 }
+
