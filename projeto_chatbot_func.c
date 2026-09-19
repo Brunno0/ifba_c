@@ -4,14 +4,16 @@
 #include <string.h>
 
 // Funções
-int menu_inicial();//ok
-void cadastro_cliente();//ultimo
-void atendimento();//ok
-void pedido();//ultimo
+int menu_inicial();
+void atendimento();
+void pedido();
 
 void cardapio(char cardapio_txt[][100], int tamanho);
 void imprimir_array_char(char array[][100], int tamanho);
 
+char lista_de_clientes[100][100];
+int quantidade_clientes = 0;
+void cadastrar_cliente(char lista_de_clientes[][100],int posicao);
 
 // Cardápio com 4 itens
 #define TAMANHO_ARRAY 4
@@ -39,9 +41,9 @@ int main() {
     int rodando = 1, opcao;
 
     while (rodando) {
-   
-    system("cls");
-cadastro_cliente();
+    	
+    	system("cls");
+		cadastrar_cliente(lista_de_clientes,quantidade_clientes); 
         opcao = menu_inicial();
 
         switch (opcao) {
@@ -62,6 +64,16 @@ cadastro_cliente();
                 printf("Encerrando atendimento. Obrigado por visitar nossa pizzaria!\n");
                 rodando = 0;
                 break;
+                
+                case 100:
+
+    				/*
+        			Nesta opção, deverá ser apresentado:
+
+        			- a lista de clientes que compraram no dia;
+        			- o total de vendas realizadas no dia.
+    				*/
+				break;
 
             default:
                 printf("Opção inválida. Tente novamente.\n");
@@ -93,7 +105,7 @@ void atendimento() {
 }
 
 
-// ================= MENU INICIAL =================
+// ================= MENU INICIAL ================= 
 
 int menu_inicial() {
 
@@ -106,7 +118,8 @@ int menu_inicial() {
     printf("[1] Cardápio\n");
     printf("[2] Atendimento\n");
     printf("[3] Fazer Pedido\n");
-    printf("[0] Sair\n");
+    printf("[0] Sair\n\n");
+    printf("[100] Relatório do dia\n");
     printf("Opção: ");
 
     scanf("%d", &opcao);
@@ -125,49 +138,8 @@ void imprimir_array_char(char array[][100], int tamanho) {
 }
 
 
-//parte 1 vídeo.
 
-// ================= CADASTRO CLIENTE ===============
-void cadastro_cliente () {
-int res;
-char nome_cliente[100];
-    char telefone_cliente[11];
-   
-do {
-system("cls");
-do{
-fflush(stdin);
-    system("cls");
 
-printf("\n=== CADASTRO DO CLIENTE ===\n");
-    printf("Digite seu nome: ");
-    fgets(nome_cliente, 100, stdin);
-
-    printf("Digite seu telefone: ");
-      fgets(telefone_cliente, 20, stdin);
-   
-    if (strlen(nome_cliente) == 1 || strlen(telefone_cliente)==1){
-    printf(" \n \t Erro: nome ou telefone vazios, tente novamente \n ");
-res = 0;
-system("pause");
-}else{
-res=1;
-}
-
-    }while ( res == 0);
-
-printf("\n=== Confira os dados:  ===\n");
-printf("Seu nome: %s \n",nome_cliente);
-    printf("Telefone: %s ",telefone_cliente);
-    printf("\n=== os dados conferem?  ===\n");
-    printf("0 - não\n");
-    printf("1 - sim\n");
-    scanf("%d",&res);
-    system("pause");
-   
-    }while(res!=1);
-   
-}
 
 
 // ================= CARDÁPIO =================
@@ -245,5 +217,27 @@ void pedido() {
     printf("\n--- RESUMO DO PEDIDO ---\n");
     printf("Total (com taxa de entrega de R$ %.2f): R$ %.2f\n",taxa_entrega,total_pedido);
     printf("Pedido realizado com sucesso!\n");
+    system("pause");
+}
+
+
+
+// ================= CADASTRO CLIENTE ===============
+
+void cadastrar_cliente(char lista_de_clientes[][100],int posicao){
+	
+	system("cls");
+
+    printf("\n=== CADASTRO DO CLIENTE ===\n");
+    printf("Digite seu nome: ");
+    fflush(stdin);
+
+    fgets(lista_de_clientes[posicao], 100, stdin);
+  
+	lista_de_clientes[posicao][strcspn(lista_de_clientes[posicao], "\n")] = '\0';
+
+    printf("\nCadastrado realizado com sucesso!\n");
+    printf("Seja bem vindo(a): %s, boas compras\n\n", lista_de_clientes[posicao]);
+	quantidade_clientes++;
     system("pause");
 }
